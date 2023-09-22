@@ -22,12 +22,16 @@
         <p>To roll the dice, simply click the "Roll Dice" button below. The values of the dice will be displayed both graphically and in the table below.</p>
         <p>If you need to roll the dice again, you can also press the Enter key after the page loads or after clicking the button.</p>
     </div>
-
-    <div id="diceContainer"></div>
-    <button id="rollButton" autofocus>Roll Dice</button>
-
+    
     <!-- Table to display dice values -->
     <table>
+        <tr>
+            <th>Die 1</th>
+            <th>Die 2</th>
+            <th>Die 3</th>
+            <th>Die 4</th>
+            <th>Die 5</th>
+        </tr>
         <tr>
             <td><input type="text" class="dice number" readonly></td>
             <td><input type="text" class="dice number" readonly></td>
@@ -36,6 +40,8 @@
             <td><input type="text" class="dice number" readonly></td>
         </tr>
     </table>
+
+    <button id="rollButton" autofocus>Roll Dice</button>
 
     <!-- Display the achievement -->
     <div id="achievement"></div>
