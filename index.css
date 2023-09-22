@@ -15,5 +15,10 @@
 /* Right-align numbers */
 .number 
 {
-    text-align: right;
+    text-align: center;
+}
+#achievement {
+    margin-top: 20px; /* Add spacing between the dice and achievement text */
+    font-weight: bold;
+    color: black;
 }
