@@ -4,12 +4,14 @@ const diceInputs = document.querySelectorAll(".dice.number");
 const achievementDisplay = document.getElementById("achievement");
 
 // Function to roll a single six-sided die
-function rollDie() {
+function rollDie() 
+{
     return Math.floor(Math.random() * 6) + 1;
 }
 
 // Function to roll a set of dice and update the input fields
-function rollDice() {
+function rollDice() 
+{
     diceContainer.innerHTML = ""; // Clear the previous dice
     const numDice = 5; // Number of dice in Yahtzee
     for (let i = 0; i < numDice; i++) {
@@ -25,35 +27,41 @@ function rollDice() {
 }
 
 // Function to determine the player's achievements based on the roll
-function determineAchievements() {
+function determineAchievements() 
+{
     const diceValues = Array.from(diceInputs).map(input => parseInt(input.value));
 
     // Define scoring categories and their scoring functions
-    const scoringCategories = {
+    const scoringCategories = 
+    {
         'Full House': isFullHouse,
         'Three of a Kind': isThreeOfAKind,
-        // Add more scoring categories and functions here...
+        'Yahtzee': isYahtzee,
     };
 
     let achievements = [];
 
     // Check each scoring category
-    for (const category in scoringCategories) {
+    for (const category in scoringCategories) 
+    {
         if (scoringCategories[category](diceValues)) {
             achievements.push(category);
         }
     }
 
     // Display the achievements and their descriptions
-    if (achievements.length > 0) {
+    if (achievements.length > 0) 
+    {
         achievementDisplay.textContent = `You rolled a: ${achievements.join(', ')}!`;
-    } else {
+    } else 
+    {
         achievementDisplay.textContent = " ";
     }
 }
 
 // Function to check if the roll is a Full House
-function isFullHouse(diceValues) {
+function isFullHouse(diceValues) 
+{
     const uniqueValues = [...new Set(diceValues)];
     if (uniqueValues.length === 2) {
         for (const value of uniqueValues) {
@@ -68,7 +76,8 @@ function isFullHouse(diceValues) {
 }
 
 // Function to check if the roll is Three of a Kind
-function isThreeOfAKind(diceValues) {
+function isThreeOfAKind(diceValues) 
+{
     const counts = Array(6).fill(0);
     for (const value of diceValues) {
         counts[value - 1]++;
@@ -77,6 +86,12 @@ function isThreeOfAKind(diceValues) {
         }
     }
     return false;
+}
+
+function isYahtzee(diceValues) 
+{
+    const uniqueValues = [...new Set(diceValues)];
+    return uniqueValues.length === 1;
 }
 
 // Add a click event listener to the roll button

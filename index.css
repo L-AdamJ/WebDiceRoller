@@ -12,12 +12,13 @@
     font-size: 24px;
 }
 
-/* Right-align numbers */
+/* Align the numbers */
 .number 
 {
-    text-align: center;
+    text-align: left;
 }
-#achievement {
+#achievement 
+{
     margin-top: 20px; /* Add spacing between the dice and achievement text */
     font-weight: bold;
     color: black;
