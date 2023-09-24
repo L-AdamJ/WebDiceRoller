@@ -41,13 +41,22 @@ function determineAchievements()
 
     let achievements = [];
 
-    // Check each scoring category
-    for (const category in scoringCategories) 
-    {
-        if (scoringCategories[category](diceValues)) {
-            achievements.push(category);
-        }
-    }
+  // Check for Full House first
+if (scoringCategories['Full House'](diceValues)) 
+{
+    achievements.push('Full House');
+}
+// Check for Three of a Kind only if Full House was not achieved
+else if (scoringCategories['Three of a Kind'](diceValues)) 
+{
+    achievements.push('Three of a Kind');
+}
+
+// Check for Yahtzee
+if (scoringCategories['Yahtzee'](diceValues)) 
+{
+    achievements.push('Yahtzee');
+}
 
     // Display the achievements and their descriptions
     if (achievements.length > 0) 
